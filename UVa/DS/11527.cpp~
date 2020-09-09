@@ -2,8 +2,8 @@
 using namespace std;
 #define ll long long
 #define ull unsigned long long
-#define rep(i,b) for(int i=0;i<b;++i)
-#define reple(i,b) for(int i=0;i<=b;++i)
+#define REPL(i,a,b) for(int i=a;i<b;++i)
+#define REPLE(i,a,b) for(int i=a;i<=b;++i)
 #define DEBUG(x) cerr << #x << " = " << (x) << endl;
 #define f first 
 #define s second 
@@ -22,7 +22,25 @@ const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
 void solve(){
-
+	int n;cin>>n;
+	map<int,int> a;
+	int snw,cnt=0,cntTmp=0;
+	int idx=0;
+	int ans = 0;
+	for(int i = 1 ; i <= n ; ++i){
+		cin>>snw;
+		if(idx>=a[snw]){
+			a[snw]=i;
+			cnt++;cntTmp++;
+			ans = max(max(cnt,cntTmp),ans);
+		}else{
+			cntTmp = i - a[snw];
+			idx = a[snw];
+			a[snw]=i;
+			cnt=0;
+		}
+	}
+	cout << ans << '\n';
 }
 
 int main(){   
@@ -31,12 +49,11 @@ int main(){
 		//freopen("input.txt", "r", stdin);
 		//freopen("output.txt", "w", stdout);
 	#endif
-	int t=1;
+	int t;cin>>t;
 	for(int i = 1 ; i <= t ; ++i){
 		solve();
 	}
 }
-
 
 
 

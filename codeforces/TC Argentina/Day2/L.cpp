@@ -2,8 +2,8 @@
 using namespace std;
 #define ll long long
 #define ull unsigned long long
-#define rep(i,b) for(int i=0;i<b;++i)
-#define reple(i,b) for(int i=0;i<=b;++i)
+#define REPL(i,a,b) for(int i=a;i<b;++i)
+#define REPLE(i,a,b) for(int i=a;i<=b;++i)
 #define DEBUG(x) cerr << #x << " = " << (x) << endl;
 #define f first 
 #define s second 
@@ -16,13 +16,15 @@ const int MOD=1e9+7;
 const int inf=1<<30;
 const ll INF=1e18;
 
-const int d4x[4]={-1,0,1,0}, d4y[4]={0,1,0,-1};
-const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
-
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
 void solve(){
-
+	int n;cin>>n;
+	if(n%2==0){
+		cout << "white\n" << "1 2\n";
+	}else{
+		cout << "black\n";
+	}
 }
 
 int main(){   

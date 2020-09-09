@@ -2,8 +2,8 @@
 using namespace std;
 #define ll long long
 #define ull unsigned long long
-#define rep(i,b) for(int i=0;i<b;++i)
-#define reple(i,b) for(int i=0;i<=b;++i)
+#define REPL(i,a,b) for(int i=a;i<b;++i)
+#define REPLE(i,a,b) for(int i=a;i<=b;++i)
 #define DEBUG(x) cerr << #x << " = " << (x) << endl;
 #define f first 
 #define s second 
@@ -16,13 +16,31 @@ const int MOD=1e9+7;
 const int inf=1<<30;
 const ll INF=1e18;
 
-const int d4x[4]={-1,0,1,0}, d4y[4]={0,1,0,-1};
-const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
-
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
+const int mXN = 1000;
+int sp[mXN+5];
+bool primes[2*mXN] = {0};
+vi pr;
 void solve(){
+	int n,k;cin>>n>>k;
+	for(int i=2;i<=mXN;++i){
+		if(sp[i] == 0){
+			sp[i]=i;
+			pr.push_back(i);
+			primes[i]=1;
+		}
+		for(int j=0 ; j<(int)pr.size() && pr[j]<=sp[i] && i*pr[j]<=mXN ; ++j){
+			sp[i*pr[j]]=pr[j];
+		}
+	}
 
+	int cnt=0;
+	for(int i = 0 ; (pr[i]+pr[i+1]+1) <= n ; ++i){
+		if(primes[pr[i]+pr[i+1]+1])cnt++;
+	}
+	if(cnt >= k)cout << "Yes\n";
+	else cout << "No\n";
 }
 
 int main(){   
@@ -36,8 +54,6 @@ int main(){
 		solve();
 	}
 }
-
-
 
 
 

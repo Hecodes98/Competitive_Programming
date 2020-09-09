@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ull unsigned long long
+#define INF 1e18
+#define REPL(i,a,b) for(int i=a;i<a;++i)
+#define REPLE(i,a,b) for(int i=a;i<=a;++i)
+typedef vector<int> vi;
+typedef vector<ll> vll;
+typedef pair<int,int> pi;
+
+ll gcd(ll a, ll b){return a==0 ? b : gcd(b%a, a);}
+
+void solve(){
+	char a;
+	int an=0, da=0;
+	while(cin >> a){
+		if(a == 'A')++an;
+		else ++da;
+	}
+	if(an > da)cout << "Anton\n";
+	else if(an < da)cout << "Danik\n";
+	else cout << "Friendship\n";
+}
+int main(){   
+    ios::sync_with_stdio(0);cin.tie(0);
+	int t=1;
+	while(t--){
+		solve();
+	}
+}  
+
+
+

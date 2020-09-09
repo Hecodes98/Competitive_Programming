@@ -2,9 +2,8 @@
 using namespace std;
 #define ll long long
 #define ull unsigned long long
-#define rep(i,b) for(int i=0;i<b;++i)
-#define reple(i,b) for(int i=0;i<=b;++i)
-#define DEBUG(x) cerr << #x << " = " << (x) << endl;
+#define REPL(i,a,b) for(int i=a;i<b;++i)
+#define REPLE(i,a,b) for(int i=a;i<=b;++i)
 #define f first 
 #define s second 
 #define ALL(v) v.begin(), v.end()
@@ -16,17 +15,24 @@ const int MOD=1e9+7;
 const int inf=1<<30;
 const ll INF=1e18;
 
-const int d4x[4]={-1,0,1,0}, d4y[4]={0,1,0,-1};
-const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
-
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
 void solve(){
-
+	int Ca, Ba, Pa;
+	int Cr, Br, Pr;
+	while(cin>>Ca>>Ba>>Pa){
+		int ans =0;
+		cin>>Cr>>Br>>Pr;
+		if(Cr > Ca)ans+=(Cr-Ca);
+		if(Br > Ba)ans+=(Br-Ba);
+		if(Pr > Pa)ans+=(Pr-Pa);
+		cout << ans << '\n';
+	}
 }
 
 int main(){   
     ios::sync_with_stdio(0);cin.tie(0);
+	
 	#ifndef ONLINE_JUDGE
 		//freopen("input.txt", "r", stdin);
 		//freopen("output.txt", "w", stdout);
@@ -36,8 +42,4 @@ int main(){
 		solve();
 	}
 }
-
-
-
-
 

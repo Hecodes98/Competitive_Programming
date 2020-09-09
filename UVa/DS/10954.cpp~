@@ -22,7 +22,24 @@ const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
 void solve(){
-
+	int n;
+	while(cin >> n && n){
+		priority_queue<int,vi,greater<int>>pq;
+		rep(i,n){
+			int x;cin>>x;
+			pq.push(x);
+		}
+		int ans=0;
+		int a = pq.top();
+		pq.pop();
+		while(!pq.empty()){
+			int b = pq.top();
+			ans += a+b;
+			pq.pop();
+			a=ans;
+		}	
+		cout << ans << '\n';
+	}
 }
 
 int main(){   
@@ -36,7 +53,6 @@ int main(){
 		solve();
 	}
 }
-
 
 
 

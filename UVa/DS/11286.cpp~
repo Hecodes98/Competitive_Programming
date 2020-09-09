@@ -2,8 +2,8 @@
 using namespace std;
 #define ll long long
 #define ull unsigned long long
-#define rep(i,b) for(int i=0;i<b;++i)
-#define reple(i,b) for(int i=0;i<=b;++i)
+#define REPL(i,a,b) for(int i=a;i<b;++i)
+#define REPLE(i,a,b) for(int i=a;i<=b;++i)
 #define DEBUG(x) cerr << #x << " = " << (x) << endl;
 #define f first 
 #define s second 
@@ -22,7 +22,28 @@ const int d8x[8]={-1,-1,0,1,1,1,0,-1}, d8y[8]={0,1,1,1,0,-1,-1,-1};
 int gcd(int a, int b){return a==0 ? b : gcd(b%a, a);}
 
 void solve(){
-
+	int n;
+	while(cin>>n && n){
+		map<vi,int> c;
+		for(int i = 0 ; i < n ; ++i){
+			vi a(5);
+			for(int i = 0 ; i < 5 ; ++i){
+				int x;cin>>x;
+				a.emplace_back(x);
+			}
+		sort(ALL(a));
+		c[a]++;
+		}
+		int mXN = -inf;
+		int ans = 0;
+		for(auto i : c){
+			mXN = max(mXN, i.s);
+		}
+		for(auto i : c){
+			if(i.s == mXN)ans++;
+		}
+		cout << ans*mXN << '\n';
+	}
 }
 
 int main(){   
@@ -36,8 +57,6 @@ int main(){
 		solve();
 	}
 }
-
-
 
 
 
